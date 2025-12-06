@@ -1,0 +1,358 @@
+<!-- Indicamos que el documento es HTML5 -->
+<!DOCTYPE html>
+
+<!-- Etiqueta raíz del documento, lang="es" indica que el contenido está en español -->
+<html lang="es">
+
+<!-- Cabecera del documento: contiene metadatos y estilos -->
+<head>
+    <!-- Define la codificación de caracteres como UTF-8 para mostrar correctamente tildes y símbolos -->
+    <meta charset="UTF-8">
+    
+    <!-- Hace que la página sea responsive, adaptándose a diferentes tamaños de pantalla -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Título que aparece en la pestaña del navegador -->
+    <title>lujemr</title>
+    
+    <!-- Inicio de los estilos CSS internos -->
+    <style>
+        /* Estilos globales para todo el cuerpo de la página */
+        body {
+            font-family: Arial, sans-serif; /* Fuente Arial para todo el texto */
+            background: #f7f7f7; /* Color de fondo gris claro */
+            margin: 0; /* Elimina márgenes predeterminados del navegador */
+            padding: 0; /* Elimina relleno predeterminado del navegador */
+        }
+
+        /* Contenedor principal que centra el contenido */
+        .container {
+            width: 90%; /* Ocupa el 90% del ancho disponible */
+            max-width: 1200px; /* Ancho máximo de 1200 píxeles */
+            margin: auto; /* Centra horizontalmente el contenedor */
+            padding: 20px; /* Espacio interno de 20 píxeles */
+        }
+
+        /* --- CAJAS GENERALES --- */
+        /* Estilo común para todas las secciones principales */
+        header, main > div, table, .botones-section, .footer-desarrollo, .galeria, .especificaciones {
+            border: 2px solid #000; /* Borde negro de 2 píxeles */
+            border-radius: 20px; /* Esquinas redondeadas de 20 píxeles */
+            padding: 20px; /* Espacio interno de 20 píxeles */
+            margin-bottom: 25px; /* Espacio de 25 píxeles debajo de cada caja */
+            background: white; /* Fondo blanco para cada sección */
+        }
+
+        /* Estilos para el título principal del encabezado */
+        header h1 {
+            text-align: center; /* Centra el texto horizontalmente */
+            margin: 0; /* Elimina márgenes por defecto */
+        }
+
+        /* Estilos para el párrafo del encabezado */
+        header p {
+            text-align: center; /* Centra el texto horizontalmente */
+            margin: 10px 0 0 0; /* Margen superior de 10px, resto en 0 */
+        }
+
+        /* Sección superior: dos columnas lado a lado */
+        .top-section {
+            display: flex; /* Activa flexbox para alinear elementos horizontalmente */
+            gap: 20px; /* Espacio de 20 píxeles entre columnas */
+        }
+
+        /* Ancho de las secciones de galería y especificaciones */
+        .galeria, .especificaciones {
+            width: 50%; /* Cada una ocupa el 50% del ancho disponible */
+        }
+
+        /* Títulos de galería y especificaciones centrados */
+        .galeria h2, .especificaciones h2 {
+            text-align: center; /* Centra el texto horizontalmente */
+            margin-top: 0; /* Elimina margen superior */
+        }
+
+        /* Galería estilo wireframe (estructura en línea) */
+        .galeria-grid {
+            display: flex; /* Activa flexbox para alinear imágenes horizontalmente */
+            justify-content: space-around; /* Distribuye las imágenes con espacio uniforme */
+            padding: 10px 0; /* Espacio vertical de 10 píxeles arriba y abajo */
+        }
+
+        /* Estilos para cada elemento de imagen individual */
+        .imagen-item {
+            border: 2px solid #000; /* Borde negro de 2 píxeles */
+            border-radius: 15px; /* Esquinas redondeadas de 15 píxeles */
+            padding: 10px; /* Espacio interno de 10 píxeles */
+            text-align: center; /* Centra el contenido (imagen y texto) */
+        }
+
+        /* Estilos para las imágenes dentro de cada elemento */
+        .imagen-item img {
+            border-radius: 10px; /* Esquinas redondeadas de 10 píxeles */
+            display: block; /* Convierte la imagen en elemento de bloque */
+            width: 100%; /* Ancho del 100% del contenedor */
+            max-width: 150px; /* Ancho máximo de 150 píxeles */
+        }
+
+        /* Estilos para el texto debajo de cada imagen */
+        .imagen-item figcaption {
+            margin-top: 10px; /* Espacio de 10 píxeles arriba del texto */
+            font-weight: bold; /* Texto en negrita */
+        }
+
+        /* Tabla estilo wireframe (estructura con bordes) */
+        table {
+            width: 100%; /* La tabla ocupa el 100% del ancho de su contenedor */
+            border-collapse: collapse; /* Une los bordes de las celdas */
+            text-align: center; /* Centra el texto en todas las celdas */
+            font-size: 16px; /* Tamaño de fuente de 16 píxeles */
+        }
+
+        /* Estilos para encabezados y celdas de la tabla */
+        table th, table td {
+            border: 1px solid #000; /* Borde negro de 1 píxel alrededor de cada celda */
+            padding: 10px; /* Espacio interno de 10 píxeles en cada celda */
+        }
+
+        /* Estilos específicos para los encabezados de la tabla */
+        table th {
+            background: #f0f0f0; /* Fondo gris claro para diferenciar encabezados */
+            font-weight: bold; /* Texto en negrita */
+        }
+
+        /* Estilos para la sección de descripción */
+        .descripcion h2 {
+            margin-top: 0; /* Elimina margen superior del título */
+        }
+
+        /* Estilos para los párrafos de descripción */
+        .descripcion p {
+            line-height: 1.6; /* Espacio entre líneas de 1.6 para mejor legibilidad */
+        }
+
+        /* Estilos para la sección de garantías */
+        .garantias h2 {
+            margin-top: 0; /* Elimina margen superior del título */
+        }
+
+        /* Estilos para la lista de garantías */
+        .garantias ul {
+            line-height: 1.8; /* Espacio entre líneas de 1.8 para mejor legibilidad */
+        }
+
+        /* Estilos para la sección de enlaces */
+        .enlaces h2 {
+            margin-top: 0; /* Elimina margen superior del título */
+        }
+
+        /* Estilos para los enlaces */
+        .enlaces a {
+            display: inline-block; /* Permite aplicar márgenes a los enlaces */
+            margin-right: 15px; /* Espacio de 15 píxeles a la derecha de cada enlace */
+            color: #000; /* Color negro para el texto */
+            text-decoration: none; /* Elimina el subrayado predeterminado */
+            font-weight: bold; /* Texto en negrita */
+        }
+
+        /* Efecto hover (al pasar el mouse) sobre los enlaces */
+        .enlaces a:hover {
+            text-decoration: underline; /* Muestra subrayado al pasar el mouse */
+        }
+
+        /* Botones estilo tarjetas (aunque no se usan en este HTML) */
+        .botones-section {
+            display: flex; /* Activa flexbox para alinear botones horizontalmente */
+            justify-content: space-between; /* Distribuye los botones con espacio entre ellos */
+            gap: 20px; /* Espacio de 20 píxeles entre botones */
+        }
+
+        /* Estilos para cada botón individual */
+        .boton-card {
+            width: 48%; /* Cada botón ocupa el 48% del ancho disponible */
+            padding: 20px; /* Espacio interno de 20 píxeles */
+            font-size: 18px; /* Tamaño de fuente de 18 píxeles */
+            background: #fff; /* Fondo blanco */
+            border: 2px solid #000; /* Borde negro de 2 píxeles */
+            border-radius: 20px; /* Esquinas redondeadas de 20 píxeles */
+            cursor: pointer; /* Cambia el cursor a manita al pasar sobre el botón */
+            text-align: center; /* Centra el texto dentro del botón */
+        }
+
+        /* Efecto hover (al pasar el mouse) sobre los botones */
+        .boton-card:hover {
+            background: #e6e6e6; /* Cambia a fondo gris claro al pasar el mouse */
+        }
+
+        /* Estilos para el pie de página */
+        .footer-desarrollo {
+            text-align: center; /* Centra todo el contenido del footer */
+        }
+
+        /* Estilos para el título del footer */
+        .footer-desarrollo h3 {
+            margin-bottom: 5px; /* Espacio de 5 píxeles debajo del título */
+        }
+
+        /* Estilos para el párrafo del footer */
+        .footer-desarrollo p {
+            font-style: italic; /* Texto en cursiva */
+            margin: 0; /* Elimina márgenes */
+        }
+    </style>
+</head>
+<!-- Cuerpo del documento: contiene todo el contenido visible -->
+<body>
+
+    <!-- Contenedor principal que centra y limita el ancho del contenido -->
+    <div class="container">
+        
+        <!-- Encabezado de la página -->
+        <header>
+            <!-- Título principal de la tienda -->
+            <h1>Tienda de Accesorios de Lujo</h1>
+            <!-- Subtítulo o descripción breve -->
+            <p>Venta de cadenas, pulseras y anillos</p>
+        </header>
+
+        <!-- Contenido principal de la página -->
+        <main>
+            <!-- Sección superior: Galería y Especificaciones en dos columnas lado a lado -->
+            <div class="top-section">
+                
+                <!-- Columna izquierda: Galería de productos -->
+                <div class="galeria">
+                    <!-- Título de la sección -->
+                    <h2>Galería de Productos</h2>
+                    
+                    <!-- Contenedor grid para las imágenes -->
+                    <div class="galeria-grid">
+                        
+                        <!-- Primera imagen con su descripción -->
+                        <figure class="imagen-item">
+                            <!-- Imagen de cadena desde Unsplash -->
+                            <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400" alt="Cadena">
+                            <!-- Texto descriptivo debajo de la imagen -->
+                            <figcaption>Cadena de Oro</figcaption>
+                        </figure>
+
+                        <!-- Segunda imagen con su descripción -->
+                        <figure class="imagen-item">
+                            <!-- Imagen de pulsera desde Unsplash -->
+                            <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=400" alt="Pulsera">
+                            <!-- Texto descriptivo debajo de la imagen -->
+                            <figcaption>Pulsera de Plata</figcaption>
+                        </figure>
+
+                        <!-- Tercera imagen con su descripción -->
+                        <figure class="imagen-item">
+                            <!-- Imagen de anillo desde Unsplash -->
+                            <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400" alt="Anillo">
+                            <!-- Texto descriptivo debajo de la imagen -->
+                            <figcaption>Anillo con Diamantes</figcaption>
+                        </figure>
+                    </div>
+                </div>
+
+                <!-- Columna derecha: Especificaciones técnicas -->
+                <div class="especificaciones">
+                    <!-- Título de la sección -->
+                    <h2>Especificaciones</h2>
+                    
+                    <!-- Tabla con información detallada de productos -->
+                    <table>
+                        <!-- Fila de encabezados -->
+                        <tr>
+                            <th>Artículo</th> <!-- Columna 1: Nombre del producto -->
+                            <th>Material</th> <!-- Columna 2: Tipo de material -->
+                            <th>Peso</th> <!-- Columna 3: Peso del producto -->
+                            <th>Precio</th> <!-- Columna 4: Precio del producto -->
+                        </tr>
+                        
+                        <!-- Primera fila de datos: Cadena -->
+                        <tr>
+                            <td>Cadena de Oro</td> <!-- Nombre del producto -->
+                            <td>Oro 18K</td> <!-- Material -->
+                            <td>25 gramos</td> <!-- Peso -->
+                            <td>2500 USD</td> <!-- Precio -->
+                        </tr>
+                        
+                        <!-- Segunda fila de datos: Pulsera -->
+                        <tr>
+                            <td>Pulsera de Plata</td> <!-- Nombre del producto -->
+                            <td>Plata 925</td> <!-- Material -->
+                            <td>18 gramos</td> <!-- Peso -->
+                            <td>450 USD</td> <!-- Precio -->
+                        </tr>
+                        
+                        <!-- Tercera fila de datos: Anillo -->
+                        <tr>
+                            <td>Anillo con Diamantes</td> <!-- Nombre del producto -->
+                            <td>Oro blanco</td> <!-- Material -->
+                            <td>8 gramos</td> <!-- Peso -->
+                            <td>3800 USD</td> <!-- Precio -->
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <!-- Fin de la sección superior de dos columnas -->
+
+            <!-- Sección de descripción de productos -->
+            <div class="descripcion">
+                <!-- Título de la sección -->
+                <h2>Descripción de Productos</h2>
+                
+                <!-- Primer párrafo: información general -->
+                <p>
+                    Nuestra tienda ofrece accesorios de lujo de alta calidad. 
+                    Tenemos cadenas de oro, pulseras de plata y anillos con diamantes.
+                </p>
+                
+                <!-- Segundo párrafo: información sobre autenticidad -->
+                <p>
+                    Todos los productos son originales y vienen con certificado de autenticidad.
+                    Los materiales son de la mejor calidad del mercado.
+                </p>
+            </div>
+
+            <!-- Sección de garantías y envíos -->
+            <div class="garantias">
+                <!-- Título de la sección -->
+                <h2>Garantías y Envíos</h2>
+                
+                <!-- Lista desordenada con viñetas -->
+                <ul>
+                    <li>Garantía de 2 años</li> <!-- Primera garantía -->
+                    <li>Certificado de autenticidad</li> <!-- Segunda garantía -->
+                    <li>Empaque de regalo</li> <!-- Beneficio adicional -->
+                </ul>
+            </div>
+
+            <!-- Sección de enlaces de navegación -->
+            <div class="enlaces">
+                <!-- Título de la sección -->
+                <h2>Enlaces</h2>
+                
+                <!-- Enlaces a otras páginas (href="#" significa que aún no tienen destino) -->
+                <a href="#">Contacto</a> <!-- Enlace a página de contacto -->
+                <a href="#">Sobre Nosotros</a> <!-- Enlace a página informativa -->
+                <a href="#">Preguntas Frecuentes</a> <!-- Enlace a FAQ -->
+            </div>
+
+            <!-- Footer con información del estudiante desarrollador -->
+            <div class="footer-desarrollo">
+                <!-- Subtítulo -->
+                <h3>Nombre del Estudiante:</h3>
+                <!-- Nombre del estudiante en cursiva -->
+                <p>Dilan David Rueda Soler</p>
+            </div>
+
+        </main>
+        <!-- Fin del contenido principal -->
+    </div>
+    <!-- Fin del contenedor principal -->
+
+</body>
+<!-- Fin del cuerpo del documento -->
+</html>
+<!-- Fin del documento HTML -->
